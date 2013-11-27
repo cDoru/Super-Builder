@@ -137,496 +137,478 @@ showlog=function(){
 </head>
 <body onLoad="getinitialHTML()" background="http://www.merklebillmin.com/superbuilder/bgimg.png">
 <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td align="left" width="250"></td>
-    <td align="center"><table border="0" cellspacing="0" cellpadding="0" width="100%">
-        <tr>
-          <td align="center"><table border="0" cellspacing="0" cellpadding="0" width="100%">
-              <tr>
-                <td valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; line-height:18px; color:#000000;"><h2><span id="head1" style=" color:#805b3a">Super Builder</span> <span style="font-size:16px;">
-                    <div class="radio-inline" style="cursor:default;">
-                      <label style="cursor:pointer;">
-                        <input class="radio-orange" type="radio" name="campaignRadios" id="MKMod" value="MK" checked="" />
-                        MK </label>
-                    </div>
-                    <div class="radio-inline" style="cursor:default;">
-                      <label style="cursor:pointer;">
-                        <input class="radio-aero" type="radio" name="campaignRadios" id="SamsungMod" value="Samsung" />
-                        Samsung </label>
-                    </div>
-                    </span></h2>
-                  <strong>This tool can only be used in <span style="color:#00ff66;">Chrome</span>!</strong></td>
-              </tr>
-              <tr>
-                <td id="guideTd1" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000;"><span style="color:#ff0000;">Left-clicking</span> to divide the unit <span style="color:#ff0000;">Vertically</span>. <span style="color:#0000ff;">Right-clicking</span> to devide the unit <span style="color:#0000ff;">Horizontally</span>.<br />
-                  <span style="color: #06C;">Ctrl + Right-clicking</span> to <strong>delete</strong> the unit which your mouse hovers on. <span class="glyphicon glyphicon-thumbs-up"></span><br />
-                  <span style="color:#f47b41;">Ctrl + Left-clicking</span> to add a specific table with defined <strong>Rows</strong>:
-                  <textarea class="form-control" id="rowNum" style="width:30px; height:16px; line-height:14px; outline:0; box-shadow:none; border:1px solid; border-color:#ddb691; font-size:12px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();"></textarea>
-                  and <strong>Cols</strong>:
-                  <textarea class="form-control" id="colNum" style="width:30px; height:16px; outline:0; line-height:14px; box-shadow:none; border:1px solid; border-color:#ddb691; font-size:12px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();"></textarea>
-                  .</td>
-                <td id="guideTd2" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;"><span style="color:#ff0000;">Left-clicking</span> to add an sequence to an img. <span style="color:#0000ff;">Right-clicking</span> to delete selected sequence. <br />
-                  <em><strong>Click <span style="color: #06C;">Ctrl + Left-click</span> on the unit hovered to call a text editor, then you can add text with it.</strong></em><br />
-                  Click on <span style="color:#f47b41;">Select images</span> to multi-select the images. <span style="color:#00ff99;">Ctrl + Right-clicking</span> to delete the hovered img.</td>
-                <td id="guideTd3" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;">Pleast paste data from CWS into the relative column on your right. Click <em><strong><span style="color:#00ffff">convert</span></strong></em><br />
-                  <strong>Fill the blank</strong> on the upper-left of the img  according to <strong>the table</strong> appeared in the middle.<br />
-                  If you do not want to add &lt;a&gt; to the img, just type "<em><strong><span style="color:#00ffff">n</span></strong></em>" in the blank.</td>
-                <td id="guideTd4" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;"><strong style="color:#f47b41;"><em>Paste/Type</em></strong> Alt into the box. <strong>Special characters &amp; Breaks</strong> will be replaced!<br />
-                  Press <span style="color: #06C;"><strong>Ctrl + Q</strong></span> to insert words from the alias of this images (if clickable) <span class="glyphicon glyphicon-thumbs-up"></span><br />
-                  Press <em><strong><span style="color:#00ff99">shift</span></strong></em> to make selected words <strong>upper/lower-case</strong>, <em><strong><span name="tooltipbottom" data-toggle="tooltip" title="fn + option + F1/F2/F3 in Mac" style="color:#ff0000">Alt+F1/F2/F3</span></strong></em> to insert ®/™/©.</td>
-              </tr>
-            </table></td>
-        </tr>
-        <tr>
-          <td><table border="0" cellspacing="0" cellpadding="0" align="center">
-              <tr>
-                <td valign="top" style="padding-top:10px; padding-left:8px;"><table border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td><table border="0" cellspacing="0" cellpadding="0" width="100%">
-                          <tr>
-                            <td><table border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                  <td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod1" class="butmodnav1" type="button" onfocus="this.blur()" value="Slice Mod" onClick="sliceMod()" style="width:80px;" /></td>
-                                  <td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod2" class="butgrey" type="button" onfocus="this.blur()" value="I/W Mod" onClick="imgMod()" style="width:80px;" /></td>
-                                  <td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod3" class="butgrey" type="button" onfocus="this.blur()" value="Alias Mod" onClick="aliasMod()" style="width:80px;" /></td>
-                                  <td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod4" class="butgrey" type="button" onfocus="this.blur()" value="Alt Mod" onClick="altMod()" style="width:80px;" /></td>
-                                </tr>
-                              </table></td>
-                            <td id="seqNum" valign="bottom" align="right" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none; padding-bottom:2px;">Next seq
-                              <textarea class="form-control" id="nextseqNum" style="width:30px; height:20px; outline:0; box-shadow:none; line-height:16px; border:2px solid; border-color:#ddb691; font-size:14px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();">2</textarea></td>
-                          </tr>
-                        </table></td>
-                    </tr>
-                    <tr>
-                      <td><div id="a1" onselectstart="return false">
-                          <table align="center" bgcolor="#ddb691" border="0" cellspacing="2" cellpadding="0" width="470" height="560" style="border-collapse:separate; background-color:#ddb691; border-spacing:2px;">
-                            <tr>
-                              <td width="500" bgcolor="#ffffff"></td>
-                            </tr>
-                          </table>
-                        </div></td>
-                    </tr>
-                    <tr>
-                      <td align="center" style="padding-top:5px;"><input class="btn btn-default" id="addbottomline" type="button" value="Add a line to the bottom" onClick="addbottomline()" style="outline:none; height:25px; vertical-align:middle; font-size:14px; padding:0; padding-left:5px; padding-right:5px;" /></td>
-                    </tr>
-                  </table></td>
-                <td id="aliastest" style="display:none;"></td>
-                <td id="cwsTd" width="200" valign="top" align="center" style="display:none; width:200px; min-width:200px;"><div class="pinned" id="cwsDiv" style="padding-left:10px; padding-top:25px; overflow:auto; width:190px; height:560px; display:none;"></div></td>
-                <td width="560" valign="top"><div class="pinned">
-                    <table align="center" border="0" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td width="460" height="100" valign="middle" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:13px; line-height:16px; color:#000000; padding:5px; padding-left:0px;"><div id="campaignInfo" style="display:none;">
-                            <input type="file" id="getlocalimg" namname="files[]" multiple style="display:none;" />
-                            <div style="width:460px; height:180px; border: 1px solid #bfbfbf; background-color:#FFF; border-radius:10px; overflow:auto; padding:6px; margin-bottom:5px; cursor:pointer; box-shadow:2px 2px 10px #909090;" onClick="getlocalimg.click()">
-                              <output id="list"></output>
-                              <div align="center" class="insertimg">
-                                <table border="0" cellspacing="0" cellpadding="0" height="100%" width="100%" style="transition-duration:0;">
-                                  <tr>
-                                    <td align="center" valign="middle" style="transition-duration:0;"><span class="glyphicon glyphicon-search"></span> Click Here to select images</td>
-                                  </tr>
-                                </table>
-                              </div>
-                            </div>
-                            <input class="btn btn-default" id="reinsertimg" type="button" value="Re-insert" onClick="reinsertimg()" style="outline:none; height:25px; vertical-align:middle; font-size:14px; padding:0; padding-left:5px; padding-right:5px; display:block;" />
-                          </div>
-                          <table id="cws" align="center" border="0" cellspacing="0" cellpadding="0" style="display:none;">
-                            <tr>
-                              <td colspan="3" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; padding:5px;"><strong><em>Paste data from CWS</em></strong></td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Alias</td>
-                              <td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Url</td>
-                              <td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Conversion</td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataAlias" style="width:180px; height:130px; padding:3px; font-size:13px;"></textarea></td>
-                              <td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataUrl" style="width:180px; height:130px; padding:3px; font-size:13px;"></textarea></td>
-                              <td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataCon" style="width:100px; height:130px; padding:3px; font-size:13px;"></textarea></td>
-                            </tr>
-                            <tr>
-                              <td colspan="3" align="center"><input class="btn btn-default" type="button" value="convert" onClick="convertcws()" style="outline:none;" /></td>
-                            </tr>
-                          </table></td>
-                      </tr>
-                    </table>
-                    <table border="0" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td align="center" valign="middle" style="padding:30px;"><table id="midbutton" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                              <td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" name="export" type="button" value="export" style="width:100px; height:30px;" /></td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="undo" onClick="getUndo()" style="width:100px; height:30px;" /></td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="rebuild" onClick="rebuild()" style="width:100px; height:30px;" /></td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="resize-height" onClick="resizebody()" style="width:100px; height:30px;" /></td>
-                            </tr>
-                            <tr>
-                              <td align="center" style="padding-top:5px;"><textarea class="form-control" id="bodyheight" style="width:80px; height:22px; outline:0; line-height:20px; border:2px solid; border-color:#ddb691; font-size:15px; padding:0px; text-align:center; overflow:hidden; padding:0;">560</textarea></td>
-                            </tr>
-                          </table></td>
-                        <td id="txtarea" align="center" style="padding-top:20px; padding-bottom:10px;"><textarea class="form-control" id="output" readonly style="width:400px; height:300px; cursor:auto; background:#FFF; padding:3px;"></textarea></td>
-                      </tr>
-                      <tr id="samsungversionselect" style="display:none;">
-                        <td></td>
-                        <td align="center"><div class="radio-inline" style="cursor:default;">
-                            <label style="cursor:pointer;">
-                              <input class="radio-aero" type="radio" name="SamsungVerRadios" id="SamsungV1" value="SamsungV1" checked="" />
-                              Samsung V1 </label>
-                          </div>
-                          <div class="radio-inline" style="cursor:default;">
-                            <label style="cursor:pointer;">
-                              <input class="radio-aero" type="radio" name="SamsungVerRadios" id="SamsungV2" value="SamsungV2" />
-                              Samsung V2 </label>
-                          </div></td>
-                      </tr>
-                    </table>
-                  </div></td>
-              </tr>
-            </table></td>
-        </tr>
-      </table></td>
-    <td align="right" valign="top" width="250" style="padding-top:150px; padding-left:10px;"><div id="updatelog" style="width: 200px; background-color:rgba(255, 255, 255, 0); border-radius: 6px; overflow: auto; box-shadow: 2px 2px 10px #909090; margin-right:10px;">
-        <table width="100%" height="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="100%" height="35" align="center" valign="middle" bgcolor="#79C3D2" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; line-height:18px; color:#000000; font-weight:500; background-color:rgba(121, 195, 210, 0.4);"><table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td width="30"></td>
-                  <td align="center">Update Log</td>
-                  <td width="30" valign="top" align="right" style="padding-right:3px; font-size:15px; line-height:15px;"><a id="removelog" style="cursor:pointer;" onclick="removelog()"><span class="glyphicon glyphicon-remove"></span></a></td>
-                </tr>
-              </table></td>
-          </tr>
-          <tr>
-            <td bgcolor="#2E2E2E" style="background-color:rgba(46, 46, 46, 0.7);"><div style="width:200px; height:450px; overflow:auto; padding:5px; border-radius:0px;">
-            	<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/22/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Highly optimize the function of undo and redo.</li></td>
-                    </tr>
-                  </table>
-                </div>
-            	<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/21/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>There was still problem that redundant 'px' exists in font attribute. I have fixed it again.</li></td>
-                    </tr>
-                  </table>
-                </div>
-            	<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/20/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Optimizing for text version.</li>
-                      <li>Fix the issue in Sansung Mod that the font attribute will be correctly exported.</li>
-                      <li>You can choose to open/close the mode that will automatically convert spaces into &amp;nbsp;</li></td>
-                    </tr>
-                  </table>
-                </div>
-                <span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/14/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Adding text function into the second mod. Try ctrl+left-clicking on the unit in img mod.</li></td>
-                    </tr>
-                  </table>
-                </div>
-             	<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/31/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Fix the issue in Alias Mod when conversion = N.</li>
-                        <li>Fix the issue in Alt Mod</li>
-                        <li>Fix an issue in Samsung Mod that may add 99% as the width of &lt;td&gt; which should be 100%</li>
-                        <li>A wierd character pasted from PSD will be replaced by space</li></td>
-                    </tr>
-                  </table>
-                </div>
-                <span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/30/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Now in Alt Mod, press ctrl+Q will pull the words in alias into the box.</li>
-                        <li>Add re-insert button in Img Mod. You can add imgs you previously choosed without select them again!</li></td>
-                    </tr>
-                  </table>
-                </div>
-                <span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/29/2013</span>
-                <div style=" border-radius:0px;">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
-                    <tr>
-                      <td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>In Slice Mod, you can press ctrl + Right-clicking to delete the unit hovered.</li></td>
-                    </tr>
-                  </table>
-                </div>
-              </div></td>
-          </tr>
-        </table>
-      </div>
-      <div id="updatelogshow" style="border-radius: 6px; background-color:rgba(121, 195, 210, 0.4); width:30px; height:30px; display:none;">
-        <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
-          <tr>
-            <td align="center" valign="top" style="font-size:19px; padding-top:3px;"><a id="showlog" style="cursor:pointer;" onclick="showlog()"><span class="glyphicon glyphicon-chevron-left"></span></a></td>
-          </tr>
-        </table>
-      </div></td>
-  </tr>
+	<tr>
+		<td align="left" width="250"></td>
+		<td align="center"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td align="center"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; line-height:18px; color:#000000;"><h2><span id="head1" style=" color:#805b3a">Super Builder</span> <span style="font-size:16px;">
+										<div class="radio-inline" style="cursor:default;">
+											<label style="cursor:pointer;">
+												<input class="radio-orange" type="radio" name="campaignRadios" id="MKMod" value="MK" checked="" />
+												MK </label>
+										</div>
+										<div class="radio-inline" style="cursor:default;">
+											<label style="cursor:pointer;">
+												<input class="radio-aero" type="radio" name="campaignRadios" id="SamsungMod" value="Samsung" />
+												Samsung </label>
+										</div>
+										</span></h2>
+									<strong>This tool can only be used in <span style="color:#00ff66;">Chrome</span>!</strong></td>
+							</tr>
+							<tr>
+								<td id="guideTd1" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000;"><span style="color:#ff0000;">Left-clicking</span> to divide the unit <span style="color:#ff0000;">Vertically</span>. <span style="color:#0000ff;">Right-clicking</span> to devide the unit <span style="color:#0000ff;">Horizontally</span>.<br />
+									<span style="color: #06C;">Ctrl + Right-clicking</span> to <strong>delete</strong> the unit which your mouse hovers on. <span class="glyphicon glyphicon-thumbs-up"></span><br />
+									<span style="color:#f47b41;">Ctrl + Left-clicking</span> to add a specific table with defined <strong>Rows</strong>:
+									<textarea class="form-control" id="rowNum" style="width:30px; height:16px; line-height:14px; outline:0; box-shadow:none; border:1px solid; border-color:#ddb691; font-size:12px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();"></textarea>
+									and <strong>Cols</strong>:
+									<textarea class="form-control" id="colNum" style="width:30px; height:16px; outline:0; line-height:14px; box-shadow:none; border:1px solid; border-color:#ddb691; font-size:12px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();"></textarea>
+									.</td>
+								<td id="guideTd2" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;"><span style="color:#ff0000;">Left-clicking</span> to add an sequence to an img. <span style="color:#0000ff;">Right-clicking</span> to delete selected sequence. <br />
+									<em><strong>Click <span style="color: #06C;">Ctrl + Left-click</span> on the unit hovered to call a text editor, then you can add text with it.</strong></em><br />
+									Click on <span style="color:#f47b41;">Select images</span> to multi-select the images. <span style="color:#00ff99;">Ctrl + Right-clicking</span> to delete the hovered img.</td>
+								<td id="guideTd3" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;">Pleast paste data from CWS into the relative column on your right. Click <em><strong><span style="color:#00ffff">convert</span></strong></em><br />
+									<strong>Fill the blank</strong> on the upper-left of the img  according to <strong>the table</strong> appeared in the middle.<br />
+									If you do not want to add &lt;a&gt; to the img, just type "<em><strong><span style="color:#00ffff">n</span></strong></em>" in the blank.</td>
+								<td id="guideTd4" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none;"><strong style="color:#f47b41;"><em>Paste/Type</em></strong> Alt into the box. <strong>Special characters &amp; Breaks</strong> will be replaced!<br />
+									Press <span style="color: #06C;"><strong>Ctrl + Q</strong></span> to insert words from the alias of this images (if clickable) <span class="glyphicon glyphicon-thumbs-up"></span><br />
+									Press <em><strong><span style="color:#00ff99">shift</span></strong></em> to make selected words <strong>upper/lower-case</strong>, <em><strong><span name="tooltipbottom" data-toggle="tooltip" title="fn + option + F1/F2/F3 in Mac" style="color:#ff0000">Alt+F1/F2/F3</span></strong></em> to insert ®/™/©.</td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td><table border="0" cellspacing="0" cellpadding="0" align="center">
+							<tr>
+								<td valign="top" style="padding-top:10px; padding-left:8px;"><table border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><table border="0" cellspacing="0" cellpadding="0" width="100%">
+													<tr>
+														<td><table border="0" cellspacing="0" cellpadding="0">
+																<tr>
+																	<td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod1" class="butmodnav1" type="button" onfocus="this.blur()" value="Slice Mod" onClick="sliceMod()" style="width:80px;" /></td>
+																	<td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod2" class="butgrey" type="button" onfocus="this.blur()" value="I/W Mod" onClick="imgMod()" style="width:80px;" /></td>
+																	<td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod3" class="butgrey" type="button" onfocus="this.blur()" value="Alias Mod" onClick="aliasMod()" style="width:80px;" /></td>
+																	<td valign="bottom" height="36" style="padding-right:4px;"><input id="Mod4" class="butgrey" type="button" onfocus="this.blur()" value="Alt Mod" onClick="altMod()" style="width:80px;" /></td>
+																</tr>
+															</table></td>
+														<td id="seqNum" valign="bottom" align="right" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; display:none; padding-bottom:2px;">Next seq
+															<textarea class="form-control" id="nextseqNum" style="width:30px; height:20px; outline:0; box-shadow:none; line-height:16px; border:2px solid; border-color:#ddb691; font-size:14px; padding:0px; text-align:center; overflow:hidden; display:inline;" onFocus="this.select();" onMouseOver="this.select();">2</textarea></td>
+													</tr>
+												</table></td>
+										</tr>
+										<tr>
+											<td><div id="a1" onselectstart="return false">
+													<table align="center" bgcolor="#ddb691" border="0" cellspacing="2" cellpadding="0" width="470" height="560" style="border-collapse:separate; background-color:#ddb691; border-spacing:2px;">
+														<tr>
+															<td width="500" bgcolor="#ffffff"></td>
+														</tr>
+													</table>
+												</div></td>
+										</tr>
+										<tr>
+											<td align="center" style="padding-top:5px;"><input class="btn btn-default" id="addbottomline" type="button" value="Add a line to the bottom" onClick="addbottomline()" style="outline:none; height:25px; vertical-align:middle; font-size:14px; padding:0; padding-left:5px; padding-right:5px;" /></td>
+										</tr>
+									</table></td>
+								<td id="aliastest" style="display:none;"></td>
+								<td id="cwsTd" width="200" valign="top" align="center" style="display:none; width:200px; min-width:200px; padding:0px;"><div class="pinned" id="cwsDiv" style="padding-left:10px; margin-top:25px; overflow:auto; width:190px; height:560px; display:none;"></div></td>
+								<td width="568" valign="top" style="min-width:568px;  padding:0px;"><div class="pinned">
+										<table align="center" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="460" height="100" valign="middle" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:13px; line-height:16px; color:#000000; padding:5px; padding-left:0px;"><div id="campaignInfo" style="display:none; margin-top:10px;">
+														<input type="file" id="getlocalimg" name="files[]" multiple style="display:none;" />
+														<div style="width:460px; height:180px; border: 1px solid #bfbfbf; background-color:#FFF; border-radius:10px; overflow:auto; padding:6px; margin-bottom:5px; cursor:pointer; box-shadow:2px 2px 10px #909090;" onClick="getlocalimg.click()">
+															<output id="list"></output>
+															<div align="center" class="insertimg">
+																<table border="0" cellspacing="0" cellpadding="0" height="100%" width="100%" style="transition-duration:0;">
+																	<tr>
+																		<td align="center" valign="middle" style="transition-duration:0;"><span class="glyphicon glyphicon-search"></span> Click Here to select images</td>
+																	</tr>
+																</table>
+															</div>
+														</div>
+														<input class="btn btn-default" id="reinsertimg" type="button" value="Re-insert" onClick="reinsertimg()" style="outline:none; height:25px; vertical-align:middle; font-size:14px; padding:0; padding-left:5px; padding-right:5px; display:block;" />
+													</div>
+													<table id="cws" align="center" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+														<tr>
+															<td colspan="3" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:20px; color:#000000; padding:5px;"><strong><em>Paste data from CWS</em></strong></td>
+														</tr>
+														<tr>
+															<td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Alias</td>
+															<td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Url</td>
+															<td align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:12px; line-height:15px; color:#000000; padding:5px;">Conversion</td>
+														</tr>
+														<tr>
+															<td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataAlias" style="width:180px; height:130px; padding:3px; font-size:13px;"></textarea></td>
+															<td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataUrl" style="width:180px; height:130px; padding:3px; font-size:13px;"></textarea></td>
+															<td align="center" style="padding:5px; padding-left:0px;"><textarea cols="20" rows="20" class="form-control" id="cwsdataCon" style="width:100px; height:130px; padding:3px; font-size:13px;"></textarea></td>
+														</tr>
+														<tr>
+															<td colspan="3" align="center"><input class="btn btn-default" type="button" value="Confirm" onClick="convertcws()" style="outline:none;" /></td>
+														</tr>
+													</table></td>
+											</tr>
+										</table>
+										<table border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td align="center" valign="middle" style="padding:30px;"><table id="midbutton" border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" name="export" type="button" value="export" style="width:100px; height:30px;" /></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="undo" onClick="getUndo()" style="width:100px; height:30px;" /></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="rebuild" onClick="rebuild()" style="width:100px; height:30px;" /></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding:4px;"><input class="button button-rounded button-flat-highlight" type="button" value="resize-height" onClick="resizebody()" style="width:100px; height:30px;" /></td>
+														</tr>
+														<tr>
+															<td align="center" style="padding-top:5px;"><input type="text" value="560" class="form-control" id="bodyheight" style="width:80px; height:22px; outline:0; line-height:20px; border:2px solid; border-color:#ddb691; text-align:center;" /></td>
+														</tr>
+													</table></td>
+												<td id="txtarea" align="center" style="padding-top:20px; padding-bottom:10px;"><textarea class="form-control" id="output" readonly style="width:400px; height:300px; cursor:auto; background:#FFF; padding:3px;"></textarea></td>
+											</tr>
+											<tr id="samsungversionselect" style="display:none;">
+												<td></td>
+												<td align="center"><div class="radio-inline" style="cursor:default;">
+														<label style="cursor:pointer;">
+															<input class="radio-aero" type="radio" name="SamsungVerRadios" id="SamsungV1" value="SamsungV1" checked="" />
+															Samsung V1 </label>
+													</div>
+													<div class="radio-inline" style="cursor:default;">
+														<label style="cursor:pointer;">
+															<input class="radio-aero" type="radio" name="SamsungVerRadios" id="SamsungV2" value="SamsungV2" />
+															Samsung V2 </label>
+													</div></td>
+											</tr>
+										</table>
+									</div></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table></td>
+		<td align="right" valign="top" width="250" style="padding-top:150px; padding-left:10px;"><div id="updatelog" style="width: 200px; background-color:rgba(255, 255, 255, 0); border-radius: 6px; overflow: auto; box-shadow: 2px 2px 10px #909090; margin-right:10px;">
+				<table width="100%" height="100%" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="100%" height="35" align="center" valign="middle" bgcolor="#79C3D2" style="font-family:Verdana, Geneva, sans-serif; font-size:18px; line-height:18px; color:#000000; font-weight:500; background-color:rgba(121, 195, 210, 0.4);"><table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td width="30"></td>
+									<td align="center">Update Log</td>
+									<td width="30" valign="top" align="right" style="padding-right:3px; font-size:15px; line-height:15px;"><a id="removelog" style="cursor:pointer;" onclick="removelog()"><span class="glyphicon glyphicon-remove"></span></a></td>
+								</tr>
+							</table></td>
+					</tr>
+					<tr>
+						<td bgcolor="#2E2E2E" style="background-color:rgba(46, 46, 46, 0.7);"><div style="width:200px; height:450px; overflow:auto; padding:5px; border-radius:0px;"> <span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/26/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Automatically find &quot;ET&quot; in urls and replace it with AMPscript like %%view_email_url%% &amp; %%ftaf_url%%</li></td>
+										</tr>
+									</table>
+								</div> <span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/22/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Highly optimize the function of undo and redo in text editor.</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/21/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>There was still problem that redundant 'px' exists in font attribute. I have fixed it again.</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/20/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Optimizing for text version.</li>
+												<li>Fix the issue in Sansung Mod that the font attribute will be correctly exported.</li>
+												<li>You can choose to open/close the mode that will automatically convert spaces into &amp;nbsp;</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">11/14/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Adding text function into the second mod. Try ctrl+left-clicking on the unit in img mod.</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/31/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Geneva, sans-serif; border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Fix the issue in Alias Mod when conversion = N.</li>
+												<li>Fix the issue in Alt Mod</li>
+												<li>Fix an issue in Samsung Mod that may add 99% as the width of &lt;td&gt; which should be 100%</li>
+												<li>A wierd character pasted from PSD will be replaced by space</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/30/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>Now in Alt Mod, press ctrl+Q will pull the words in alias into the box.</li>
+												<li>Add re-insert button in Img Mod. You can add imgs you previously choosed without select them again!</li></td>
+										</tr>
+									</table>
+								</div>
+								<span style="font-family:Verdana, Geneva, sans-serif; color: #FC0; font-size:15px; font-weight:bold;">10/29/2013</span>
+								<div style=" border-radius:0px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-width:1px; border-style:dashed; border-color: #CC6; background:#292929; color:#eaf2d9; border-radius:0px;">
+										<tr>
+											<td style="font-family:Verdana, Geneva, sans-serif; padding:3px; border-radius:0px; font-size:11px;"><li>In Slice Mod, you can press ctrl + Right-clicking to delete the unit hovered.</li></td>
+										</tr>
+									</table>
+								</div>
+							</div></td>
+					</tr>
+				</table>
+			</div>
+			<div id="updatelogshow" style="border-radius: 6px; background-color:rgba(121, 195, 210, 0.4); width:30px; height:30px; display:none;">
+				<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td align="center" valign="top" style="font-size:19px; padding-top:3px;"><a id="showlog" style="cursor:pointer;" onclick="showlog()"><span class="glyphicon glyphicon-chevron-left"></span></a></td>
+					</tr>
+				</table>
+			</div></td>
+	</tr>
 </table>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="100%" valign="bottom" align="right" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:16px; color:#000000; padding-bottom:20px; padding-right:20px;"><em>Designed by Bill</em></td>
-  </tr>
-  <tr>
-    <td width="100%" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:16px; color:#000000; padding-bottom:20px;"><strong><a target="_blank" href="http://www.merklebillmin.com/superbuilder/updatelog.php" style="color:#f47b41; text-decoration:none;">Update Logs</a> | Instruction</strong></td>
-  </tr>
+	<tr>
+		<td width="100%" valign="bottom" align="right" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:16px; color:#000000; padding-bottom:20px; padding-right:20px;"><em>Designed by Bill</em></td>
+	</tr>
+	<tr>
+		<td width="100%" valign="bottom" align="center" style="font-family:Verdana, Geneva, sans-serif; font-size:15px; line-height:16px; color:#000000; padding-bottom:20px;"><strong><a target="_blank" href="http://www.merklebillmin.com/superbuilder/updatelog.php" style="color:#f47b41; text-decoration:none;">Update Logs</a> | Instruction</strong></td>
+	</tr>
 </table>
 <div class="modal fade" id="textEditor">
-<div style="position:absolute; right:10px; top:10px;"><a data-dismiss="modal" style="cursor:pointer; color:#ccc;"><span class="glyphicon glyphicon-remove"></span></a></div>
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center" valign="middle"><div class="modal-dialog">
-    <div class="modal-content" style="width:750px; box-shadow:none; background-color:rgba(255, 255, 255, 0); outline:0; border:none;">
-      <div id="texteditorpanel" style="width:750px; background-color:#FFF; outline:0; border:1px solid #555; box-shadow: 2px 2px 10px #333333;">
-        <div id="toolbar" style="width:100%; height:110px; box-shadow: 0 1px 0 #fff inset; background: #cfd1cf; background-image: -webkit-linear-gradient(top,#f5f5f5,#cfd1cf); border-bottom: 1px solid #b6b6b6; padding:10px;">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <tr>
-              <td align="left" valign="top"><table align="left" cellpadding="0" cellspacing="0" border="0">
-              	<tr>
-                	<td height="24" colspan="2" align="center" style="border-bottom:1px solid #CCC; font-weight:bold; color: #0070A6;">Default</td>
-                </tr>
-                  <tr>
-                    <td height="28" align="center" valign="middle" style="padding:3px;"><div id="editorfont" class="btn-group"><a title="Arial, Helvetica, sans-serif" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="height:25px; padding-top:5px;"><i class="icon-font"></i><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a style="font-family:Arial, Helvetica, sans-serif; cursor:pointer;" onclick="changetitle($(this).parent().parent().prev(),'Arial, Helvetica, sans-serif','font')">Arial, Helvetica, sans-serif</a></li>
-                          <li><a style="font-family:Verdana, Geneva, sans-serif; cursor:pointer;" onclick="changetitle($(this).parent().parent().prev(),'Verdana, Geneva, sans-serif','font')">Verdana, Geneva, sans-serif</a></li>
-                        </ul>
-                      </div></td>
-                      <td height="28" align="center" valign="middle" style="padding:3px;"><div class="btn-group"><a title="Color" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="width:47px; height:25px; padding-top:3px;"><span class="glyphicon glyphicon-adjust"></span></a>
-                      <div class="dropdown-menu input-append" style="padding:3px; padding-top:5px; padding-bottom:5px; width:180px;">
-			    <input type="text" class="form-control" disabled="disabled" style="height:25px; width:74px; font-size:12px; line-height:0; padding-left:6px; padding-right:1px; display:inline; border-radius:4px 0 0 4px; background-color:#eeeeee; border:1px solid #cccccc; border-right:0; cursor:auto;" value="Font-color #" /><input type="text" class="form-control" style="width:60px; height:25px; font-size:12px; padding-left:6px; padding-right:6px; border-radius:0 4px 4px 0; display:inline;" value="000000">
-			    <button class="btn btn-editor" style="width:30px; height:23px; padding-left:6px; padding-top:2px; display:inline;" onclick="setgvarineditor($(this).prev().val().replace(/\s+/g,''),'color')"><span class="glyphicon glyphicon-ok"></span></button>
-        </div>
-                      </div></td>
-                  </tr>
-                  <tr>
-                    <td height="28" align="center" valign="middle" style="padding:3px;"><input type="text" id="defaultfontsize" class="form-control" title="Font-size" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" onchange="setgvarineditor($(this).text(),'fontsize')" value="12" /><div id="editorfontsize" class="btn-group"> <a title="Font-size" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a style="cursor:pointer;">8px</a></li>
-                          <li><a style="cursor:pointer;">9px</a></li>
-                          <li><a style="cursor:pointer;">10px</a></li>
-                          <li><a style="cursor:pointer;">11px</a></li>
-                          <li><a style="cursor:pointer;">12px</a></li>
-                          <li><a style="cursor:pointer;">13px</a></li>
-                          <li><a style="cursor:pointer;">14px</a></li>
-                          <li><a style="cursor:pointer;">15px</a></li>
-                          <li><a style="cursor:pointer;">16px</a></li>
-                          <li><a style="cursor:pointer;">17px</a></li>
-                          <li><a style="cursor:pointer;">18px</a></li>
-                          <li><a style="cursor:pointer;">19px</a></li>
-                          <li><a style="cursor:pointer;">20px</a></li>
-                          <li><a style="cursor:pointer;">25px</a></li>
-                          <li><a style="cursor:pointer;">30px</a></li>
-                          <li><a style="cursor:pointer;">35px</a></li>
-                          <li><a style="cursor:pointer;">40px</a></li>
-                        </ul>
-                      </div></td>
-                      <td height="28" align="center" valign="middle" style="padding:3px;"><input type="text" id="defaultlineheight" class="form-control" title="Line-height" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" onchange="setgvarineditor($(this).html(),'fontsize')" value="NA" /><div id="editorlineheight" class="btn-group"> <a title="Line-height" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a style="cursor:pointer;">NA</a></li>
-                          <li><a style="cursor:pointer;">8px</a></li>
-                          <li><a style="cursor:pointer;">9px</a></li>
-                          <li><a style="cursor:pointer;">10px</a></li>
-                          <li><a style="cursor:pointer;">11px</a></li>
-                          <li><a style="cursor:pointer;">12px</a></li>
-                          <li><a style="cursor:pointer;">13px</a></li>
-                          <li><a style="cursor:pointer;">14px</a></li>
-                          <li><a style="cursor:pointer;">15px</a></li>
-                          <li><a style="cursor:pointer;">16px</a></li>
-                          <li><a style="cursor:pointer;">17px</a></li>
-                          <li><a style="cursor:pointer;">18px</a></li>
-                          <li><a style="cursor:pointer;">19px</a></li>
-                          <li><a style="cursor:pointer;">20px</a></li>
-                          <li><a style="cursor:pointer;">25px</a></li>
-                          <li><a style="cursor:pointer;">30px</a></li>
-                          <li><a style="cursor:pointer;">35px</a></li>
-                          <li><a style="cursor:pointer;">40px</a></li>
-                        </ul>
-                      </div></td>
-                  </tr>
-                </table></td>
-              <td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td style="border-right:1px solid #CCC;"></td>
-                  </tr>
-                </table></td>
-              <td><table cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                    <td height="28" align="center" valign="middle">
-                    <div class="btn-group">
-        <a class="btn btn-editor-select" title="Bold" onclick="insertbold()" style="width:35px; height:25px; padding-top:5px;"><i class="icon-bold"></i></a>
-        <a class="btn btn-editor-select" title="Italic" onclick="insertitalic()" style="width:35px; height:25px; padding-top:5px;"><i class="icon-italic"></i></a>
-        <a class="btn btn-editor-select" title="Sup" onclick="insertsup()" style="font-size:13px; line-height:14px; font-weight:bold; padding-left:4px; padding-right:4px; width:35px; height:25px; padding-top:5px;">Sup</a>
-      </div></td>
-                  </tr>
-                  <tr>
-                    <td height="28" align="center" valign="middle">
-                    <div singleselect class="btn-group" data-toggle="buttons">
-        <a class="btn btn-editor-select" title="Left" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('left','align')"><i class="icon-align-left"></i></a>
-        <a class="btn btn-editor-select" title="Center" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('center','align')"><i class="icon-align-center"></i></a>
-        <a class="btn btn-editor-select" title="Right" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('right','align')"><i class="icon-align-right"></i></a>
-      </div></td>
-                  </tr>
-                  <tr>
-                    <td height="28" align="center" valign="middle">
-                    <div singleselect class="btn-group" data-toggle="buttons">
-        <a class="btn btn-editor-select" title="Top" style="width:35px; height:25px; padding-top:2px; padding-left:11px;" onclick="setgvarineditor('top','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a>
-        <a class="btn btn-editor-select" title="Middle" style="width:35px; height:25px; padding-top:6px; padding-left:11px;" onclick="setgvarineditor('middle','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a>
-        <a class="btn btn-editor-select" title="Bottom" style="width:35px; height:25px; padding-top:10px; padding-left:11px;" onclick="setgvarineditor('bottom','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a>
-      </div></td>
-                  </tr>
-                </table></td>
-              <td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td style="border-right:1px solid #CCC;"></td>
-                  </tr>
-                </table></td>
-              <td><table width="200" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                    <td height="28" align="left" valign="middle">
-                    <div class="checkbox-inline" style="cursor:default;">
-                        <input type="checkbox" name="styletype" id="linkstyle" value="Link" />
-                    </div> <label title="Adding &lt;a&gt; instead of &lt;span&gt;">Link</label> <div class="checkbox-inline" style="cursor:default;">
-                        <input type="checkbox" name="styletypeinherit" id="linkstyleinherit" value="Inherit" />
-                    </div> <label title="Use default setting">Inherit</label>
-                    </td>
-                  </tr>
-                  <tr id="insertattribute">
-                    <td height="28" align="left" valign="middle">
-                    <div class="input-group" style="padding:0;">
-  <div class="input-group-addon" style="height:25px; min-height:20px; font-size:12px; line-height:0; padding-left:6px; padding-right:1px;">Color #</div>
-  <input id="insertcolor" type="text" class="form-control" style="width:60px; height:25px; font-size:12px; padding-left:6px; padding-right:6px; border-radius:0 4px 4px 0;">&nbsp;<div singleselect class="btn-group" data-toggle="button"><a id="underlinestate" class="btn btn-editor-select" title="Underline" style="width:30px; height:25px; padding-top:5px; padding-left:7px;"><i class="icon-underline"></i></a></div>&nbsp;<input type="text" class="form-control" title="Font-size in span" id="fontsizespan" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" value="NA" /><div id="editorfontsizeinsert" class="btn-group"> <a title="Font-size in span" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a style="cursor:pointer;">NA</a></li>
-                          <li><a style="cursor:pointer;">8px</a></li>
-                          <li><a style="cursor:pointer;">9px</a></li>
-                          <li><a style="cursor:pointer;">10px</a></li>
-                          <li><a style="cursor:pointer;">11px</a></li>
-                          <li><a style="cursor:pointer;">12px</a></li>
-                          <li><a style="cursor:pointer;">13px</a></li>
-                          <li><a style="cursor:pointer;">14px</a></li>
-                          <li><a style="cursor:pointer;">15px</a></li>
-                          <li><a style="cursor:pointer;">16px</a></li>
-                          <li><a style="cursor:pointer;">17px</a></li>
-                          <li><a style="cursor:pointer;">18px</a></li>
-                          <li><a style="cursor:pointer;">19px</a></li>
-                          <li><a style="cursor:pointer;">20px</a></li>
-                          <li><a style="cursor:pointer;">25px</a></li>
-                          <li><a style="cursor:pointer;">30px</a></li>
-                          <li><a style="cursor:pointer;">35px</a></li>
-                          <li><a style="cursor:pointer;">40px</a></li>
-                        </ul>
-                      </div>
-</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td height="28" align="center" valign="middle">
-                    <a class="btn btn-editor" onclick="insertstyle()" style="font-size:13px; line-height:14px; color:#555555; padding-left:4px; padding-right:4px; height:25px; padding-top:3px;"><strong>Insert Style</strong></a>&nbsp;<a class="btn btn-editor" onclick="clearformat()" title="Clear all the format of selected part" style="font-size:13px; line-height:14px; color:#555555; padding-left:4px; padding-right:4px; height:25px; padding-top:3px;"><strong>Clear format</strong></a>
-                    </td>
-                  </tr>
-                </table></td>
-              <td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td style="border-right:1px solid #CCC;"></td>
-                  </tr>
-                </table></td>
-                <td><table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td></td>
-    <td width="28" align="center" valign="middle"><input title="Padding-top" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingtop')" /><a class="btn btn-editor" title="Padding-top"  onclick="$(this).prev('input').val(setgvarineditor(parseInt($(this).prev('input').val())+1+'px','paddingtop'))" style="font-size:13px; line-height:0; color:#555555; padding-top:0px; padding-bottom:0px; padding-left:9px; width:28px; height:13px;"><i class="icon-angle-down"></i></a></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td height="28" align="center" valign="middle"><input title="Padding-left" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; display:inline; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingleft')" /><a class="btn btn-editor" title="Padding-left"  onclick="$(this).prev('input').val(setgvarineditor(parseInt($(this).prev('input').val())+1+'px','paddingleft'))" style="font-size:13px; line-height:0; color:#555555; padding-left:0px; padding-right:0px; width:13px; height:28px; padding-top:7px;"><i class="icon-angle-right"></i></a></td>
-    <td width="28" height="28"><table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center" valign="middle" style="font-size:12px; line-height:15px; padding:6px;"><div style="border:1px solid #CCC; border-radius:3px; background-color: #ECF9FF; padding:3px;">padding</div></td>
-  </tr>
-</table>
-</td>
-    <td height="28" align="center" valign="middle"><a class="btn btn-editor" title="Padding-right" onclick="$(this).next('input').val(setgvarineditor(parseInt($(this).next('input').val())+1+'px','paddingright'))" style="font-size:13px; line-height:0; color:#555555; padding-left:0px; padding-right:0px; width:13px; height:28px; padding-top:7px;"><i class="icon-angle-left"></i></a><input title="Padding-right" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; display:inline; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingright')" /></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td width="28" align="center" valign="middle"><a class="btn btn-editor" title="Padding-bottom" onclick="$(this).next('input').val(setgvarineditor(parseInt($(this).next('input').val())+1+'px','paddingbottom'))" style="font-size:13px; line-height:0; color:#555555; padding-top:0px; padding-bottom:0px; padding-left:9px; width:28px; height:13px;"><i class="icon-angle-up"></i></a><input title="Padding-bottom" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingbottom')" /></td>
-    <td></td>
-  </tr>
-</table></td>
-				<td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td style="border-right:1px solid #CCC;"></td>
-                  </tr>
-                </table></td>
-                <td><table cellpadding="0" cellspacing="0" border="0">
-                	<tr>
-                		<td height="28" align="left" valign="middle">
-                        <div style="display:block;">
-                    <div class="checkbox-inline" title="Under developing" style="cursor:default;">
-                        <input type="checkbox" disabled="disabled" name="bulletmod" id="bulletmod" value="bulletmod" />
-                    </div> <label>Bullet</label></div></td></tr>
-                    <tr>
-                    	<td height="28" align="left" valign="middle">
-                    	<div style="display:block;"><div class="checkbox-inline" style="cursor:default;">
-                        <input type="checkbox" name="addtablestate" id="addtablestate" value="addtablestate" />
-                    </div> <label title="Adding a table to enclose the words">Table</label></div></td></tr>
-                    <tr>
-                    <td height="28" align="right"><div class="input-group" style="display: inline;">
-                      <input type="text" class="form-control" title="Width" id="texttdwidth" style="display:inline-block; height:25px; width:30px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0 0 4px; padding:0px;" placeholder="Width" onchange="setgvarineditor($(this).val().replace(/\s+/g,''),'width')" /><span class="input-group-addon" style="height: 25px; width: 20px; display: inline-block; padding: 3px;">px</span>
-                    </div><div class="input-group" style="display: inline;">
-                      <input type="text" class="form-control" title="Height" id="texttdheight" style="display:inline; height:25px; width:30px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0 0 4px; padding:0px;" placeholder="Height" onchange="setgvarineditor($(this).val().replace(/\s+/g,''),'height')" /><span class="input-group-addon" style="height: 25px; width: 20px; display: inline-block; padding: 3px;">px</span>
-                    </div></td>
-                    </tr>
-                </table>
-                </td>
-            </tr>
-          </table>
-        </div>
-        <div style="max-height:600px; overflow:auto;">
-        <div style="width:100%; background-color:#FFF; outline:0; overflow:auto; padding:3px; display:block;">
-		        <textarea id="textineditor" style="width:100%; min-height:150px; border:1px dotted #CCC; outline:0; resize:vertical;"></textarea>
-                
-        </div>
-        <div id="demoportion" style="margin:0; padding:5px; background-color:rgba(255, 255, 255, 0); display:block;">
-        <div style="color:#0070A6; display:block; text-align:left;"><strong>DEMO</strong> <em>(You can both select words below and above to operate)</em></div>
-          	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:2px dotted #aaa;">
-              <tr>
-                <td width="100%" id="textdemo" style="vertical-align:top; text-align:left; height:150px;"></td>
-              </tr>
-            </table></div>
-        </div>
-        <div style="width:100%; height:50px; background: #cfd1cf; background-image: -webkit-linear-gradient(top,#ebebeb,#cfd1cf); border-top: 1px solid #bfbfbf;">
-          <div class="btn-group" style="position: absolute; left:10px; bottom:10px;">
-        <a class="btn btn-editor" title="Undo (Ctrl+z / Cmd+z in MAC)" onclick="geteditorundo()" style="width:35px; height:30px; padding:7px;"><i class="icon-undo"></i></a>
-        <a class="btn btn-editor" title="Redo (Ctrl+y / Shift+Cmd+z in MAC)" onclick="geteditorredo()" style="width:35px; height:30px; padding:7px;"><i class="icon-repeat"></i></a>
-      </div>
-      <div singleselect class="btn-group" data-toggle="button" style="position:absolute; left:100px; bottom:10px;"><a id="nbspmod" class="btn btn-editor-select" title="Convert string with more than 2 spaces into &amp;nbsp;s. Click to open/close." style="font-size:13px; line-height:14px; font-weight:bold; padding-left:4px; padding-right:4px; width:72px; height:30px; padding:7px;">&amp;nbsp;</a></div>
-          <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
-            <tr>
-              <td align="center" valign="middle"><button type="button" class="btn btn-primary" style="outline:0;" onclick="confirmeditor()">Confirm</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" style="outline:0;">Close</button></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div></td>
-  </tr>
-</table>
+	<div style="position:absolute; right:10px; top:10px;"><a data-dismiss="modal" style="cursor:pointer; color:#ccc;"><span class="glyphicon glyphicon-remove"></span></a></div>
+	<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="center" valign="middle"><div class="modal-dialog">
+					<div class="modal-content" style="width:750px; box-shadow:none; background-color:rgba(255, 255, 255, 0); outline:0; border:none;">
+						<div id="texteditorpanel" style="width:750px; background-color:#FFF; outline:0; border:1px solid #555; box-shadow: 2px 2px 10px #333333;">
+							<div id="toolbar" style="width:100%; height:110px; box-shadow: 0 1px 0 #fff inset; background: #cfd1cf; background-image: -webkit-linear-gradient(top,#f5f5f5,#cfd1cf); border-bottom: 1px solid #b6b6b6; padding:10px;">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td align="left" valign="top"><table align="left" cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td height="24" colspan="2" align="center" style="border-bottom:1px solid #CCC; font-weight:bold; color: #0070A6;">Default</td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle" style="padding:3px;"><div id="editorfont" class="btn-group"><a title="Arial, Helvetica, sans-serif" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="height:25px; padding-top:5px;"><i class="icon-font"></i><b class="caret"></b></a>
+															<ul class="dropdown-menu">
+																<li><a style="font-family:Arial, Helvetica, sans-serif; cursor:pointer;" onclick="changetitle($(this).parent().parent().prev(),'Arial, Helvetica, sans-serif','font')">Arial, Helvetica, sans-serif</a></li>
+																<li><a style="font-family:Verdana, Geneva, sans-serif; cursor:pointer;" onclick="changetitle($(this).parent().parent().prev(),'Verdana, Geneva, sans-serif','font')">Verdana, Geneva, sans-serif</a></li>
+															</ul>
+														</div></td>
+													<td height="28" align="center" valign="middle" style="padding:3px;"><div class="btn-group"><a title="Color" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="width:47px; height:25px; padding-top:3px;"><span class="glyphicon glyphicon-adjust"></span></a>
+															<div class="dropdown-menu input-append" style="padding:3px; padding-top:5px; padding-bottom:5px; width:180px;">
+																<input type="text" class="form-control" disabled="disabled" style="height:25px; width:74px; font-size:12px; line-height:0; padding-left:6px; padding-right:1px; display:inline; border-radius:4px 0 0 4px; background-color:#eeeeee; border:1px solid #cccccc; border-right:0; cursor:auto;" value="Font-color #" /><input type="text" class="form-control" style="width:60px; height:25px; font-size:12px; padding-left:6px; padding-right:6px; border-radius:0 4px 4px 0; display:inline;" value="000000">&nbsp;<button class="btn btn-editor" style="width:30px; height:23px; padding-left:6px; padding-top:2px; display:inline;" onclick="setgvarineditor($(this).prev().val().replace(/\s+/g,''),'color')"><span class="glyphicon glyphicon-ok"></span></button>
+															</div>
+														</div></td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle" style="padding:3px;"><input type="text" id="defaultfontsize" class="form-control" title="Font-size" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" onchange="setgvarineditor($(this).text(),'fontsize')" value="12" /><div id="editorfontsize" class="btn-group"> <a title="Font-size" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
+															<ul class="dropdown-menu" role="menu">
+																<li><a style="cursor:pointer;">8px</a></li>
+																<li><a style="cursor:pointer;">9px</a></li>
+																<li><a style="cursor:pointer;">10px</a></li>
+																<li><a style="cursor:pointer;">11px</a></li>
+																<li><a style="cursor:pointer;">12px</a></li>
+																<li><a style="cursor:pointer;">13px</a></li>
+																<li><a style="cursor:pointer;">14px</a></li>
+																<li><a style="cursor:pointer;">15px</a></li>
+																<li><a style="cursor:pointer;">16px</a></li>
+																<li><a style="cursor:pointer;">17px</a></li>
+																<li><a style="cursor:pointer;">18px</a></li>
+																<li><a style="cursor:pointer;">19px</a></li>
+																<li><a style="cursor:pointer;">20px</a></li>
+																<li><a style="cursor:pointer;">25px</a></li>
+																<li><a style="cursor:pointer;">30px</a></li>
+																<li><a style="cursor:pointer;">35px</a></li>
+																<li><a style="cursor:pointer;">40px</a></li>
+															</ul>
+														</div></td>
+													<td height="28" align="center" valign="middle" style="padding:3px;"><input type="text" id="defaultlineheight" class="form-control" title="Line-height" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" onchange="setgvarineditor($(this).html(),'fontsize')" value="NA" /><div id="editorlineheight" class="btn-group"> <a title="Line-height" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
+															<ul class="dropdown-menu" role="menu">
+																<li><a style="cursor:pointer;">NA</a></li>
+																<li><a style="cursor:pointer;">8px</a></li>
+																<li><a style="cursor:pointer;">9px</a></li>
+																<li><a style="cursor:pointer;">10px</a></li>
+																<li><a style="cursor:pointer;">11px</a></li>
+																<li><a style="cursor:pointer;">12px</a></li>
+																<li><a style="cursor:pointer;">13px</a></li>
+																<li><a style="cursor:pointer;">14px</a></li>
+																<li><a style="cursor:pointer;">15px</a></li>
+																<li><a style="cursor:pointer;">16px</a></li>
+																<li><a style="cursor:pointer;">17px</a></li>
+																<li><a style="cursor:pointer;">18px</a></li>
+																<li><a style="cursor:pointer;">19px</a></li>
+																<li><a style="cursor:pointer;">20px</a></li>
+																<li><a style="cursor:pointer;">25px</a></li>
+																<li><a style="cursor:pointer;">30px</a></li>
+																<li><a style="cursor:pointer;">35px</a></li>
+																<li><a style="cursor:pointer;">40px</a></li>
+															</ul>
+														</div></td>
+												</tr>
+											</table></td>
+										<td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td style="border-right:1px solid #CCC;"></td>
+												</tr>
+											</table></td>
+										<td><table cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td height="28" align="center" valign="middle"><div class="btn-group"> <a class="btn btn-editor-select" title="Bold" onclick="insertbold()" style="width:35px; height:25px; padding-top:5px;"><i class="icon-bold"></i></a> <a class="btn btn-editor-select" title="Italic" onclick="insertitalic()" style="width:35px; height:25px; padding-top:5px;"><i class="icon-italic"></i></a> <a class="btn btn-editor-select" title="Sup" onclick="insertsup()" style="font-size:13px; line-height:14px; font-weight:bold; padding-left:4px; padding-right:4px; width:35px; height:25px; padding-top:5px;">Sup</a> </div></td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle"><div singleselect class="btn-group" data-toggle="buttons"> <a class="btn btn-editor-select" title="Left" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('left','align')"><i class="icon-align-left"></i></a> <a class="btn btn-editor-select" title="Center" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('center','align')"><i class="icon-align-center"></i></a> <a class="btn btn-editor-select" title="Right" style="width:35px; height:25px; padding-top:5px; padding-left:9px;" onclick="setgvarineditor('right','align')"><i class="icon-align-right"></i></a> </div></td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle"><div singleselect class="btn-group" data-toggle="buttons"> <a class="btn btn-editor-select" title="Top" style="width:35px; height:25px; padding-top:2px; padding-left:11px;" onclick="setgvarineditor('top','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a> <a class="btn btn-editor-select" title="Middle" style="width:35px; height:25px; padding-top:6px; padding-left:11px;" onclick="setgvarineditor('middle','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a> <a class="btn btn-editor-select" title="Bottom" style="width:35px; height:25px; padding-top:10px; padding-left:11px;" onclick="setgvarineditor('bottom','valign')"><i class="icon-align-justify" style="font-size:12px;"></i></a> </div></td>
+												</tr>
+											</table></td>
+										<td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td style="border-right:1px solid #CCC;"></td>
+												</tr>
+											</table></td>
+										<td><table width="200" cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td height="28" align="left" valign="middle"><div class="checkbox-inline" style="cursor:default;">
+															<input type="checkbox" name="styletype" id="linkstyle" value="Link" />
+														</div>
+														<label title="Adding &lt;a&gt; instead of &lt;span&gt;">Link</label>
+														<div class="checkbox-inline" style="cursor:default;">
+															<input type="checkbox" name="styletypeinherit" id="linkstyleinherit" value="Inherit" />
+														</div>
+														<label title="Use default setting">Inherit</label></td>
+												</tr>
+												<tr id="insertattribute">
+													<td height="28" align="left" valign="middle"><div class="input-group" style="padding:0;">
+															<div class="input-group-addon" style="height:25px; min-height:20px; font-size:12px; line-height:0; padding-left:6px; padding-right:1px;">Color #</div>
+															<input id="insertcolor" type="text" class="form-control" style="width:60px; height:25px; font-size:12px; padding-left:6px; padding-right:6px; border-radius:0 4px 4px 0;">&nbsp;<div singleselect class="btn-group" data-toggle="button"><a id="underlinestate" class="btn btn-editor-select" title="Underline" style="width:30px; height:25px; padding-top:5px; padding-left:7px;"><i class="icon-underline"></i></a></div>&nbsp;<input type="text" class="form-control" title="Font-size in span" id="fontsizespan" style="display:inline; height:25px; width:20px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0px 0px 4px; padding:1px;" value="NA" /><div id="editorfontsizeinsert" class="btn-group"> <a title="Font-size in span" class="btn btn-editor dropdown-toggle" data-toggle="dropdown" style="display:inline; height:25px; width:27px; padding:1px; border-left:none; border-radius:0px 4px 4px 0px; font-size:12px; line-height:20px;">px <span class="caret"></span> </a>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a style="cursor:pointer;">NA</a></li>
+																	<li><a style="cursor:pointer;">8px</a></li>
+																	<li><a style="cursor:pointer;">9px</a></li>
+																	<li><a style="cursor:pointer;">10px</a></li>
+																	<li><a style="cursor:pointer;">11px</a></li>
+																	<li><a style="cursor:pointer;">12px</a></li>
+																	<li><a style="cursor:pointer;">13px</a></li>
+																	<li><a style="cursor:pointer;">14px</a></li>
+																	<li><a style="cursor:pointer;">15px</a></li>
+																	<li><a style="cursor:pointer;">16px</a></li>
+																	<li><a style="cursor:pointer;">17px</a></li>
+																	<li><a style="cursor:pointer;">18px</a></li>
+																	<li><a style="cursor:pointer;">19px</a></li>
+																	<li><a style="cursor:pointer;">20px</a></li>
+																	<li><a style="cursor:pointer;">25px</a></li>
+																	<li><a style="cursor:pointer;">30px</a></li>
+																	<li><a style="cursor:pointer;">35px</a></li>
+																	<li><a style="cursor:pointer;">40px</a></li>
+																</ul>
+															</div>
+														</div></td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle"><a class="btn btn-editor" onclick="insertstyle()" style="font-size:13px; line-height:14px; color:#555555; padding-left:4px; padding-right:4px; height:25px; padding-top:3px;"><strong>Insert Style</strong></a>&nbsp;<a class="btn btn-editor" onclick="clearformat()" title="Clear all the format of selected part" style="font-size:13px; line-height:14px; color:#555555; padding-left:4px; padding-right:4px; height:25px; padding-top:3px;"><strong>Clear format</strong></a></td>
+												</tr>
+											</table></td>
+										<td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td style="border-right:1px solid #CCC;"></td>
+												</tr>
+											</table></td>
+										<td><table border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td></td>
+													<td width="28" align="center" valign="middle"><input title="Padding-top" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingtop')" /><a class="btn btn-editor" title="Padding-top"  onclick="$(this).prev('input').val(setgvarineditor(parseInt($(this).prev('input').val())+1+'px','paddingtop'))" style="font-size:13px; line-height:0; color:#555555; padding-top:0px; padding-bottom:0px; padding-left:9px; width:28px; height:13px;"><i class="icon-angle-down"></i></a></td>
+													<td></td>
+												</tr>
+												<tr>
+													<td height="28" align="center" valign="middle"><input title="Padding-left" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; display:inline; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingleft')" /><a class="btn btn-editor" title="Padding-left"  onclick="$(this).prev('input').val(setgvarineditor(parseInt($(this).prev('input').val())+1+'px','paddingleft'))" style="font-size:13px; line-height:0; color:#555555; padding-left:0px; padding-right:0px; width:13px; height:28px; padding-top:7px;"><i class="icon-angle-right"></i></a></td>
+													<td width="28" height="28"><table border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="center" valign="middle" style="font-size:12px; line-height:15px; padding:6px;"><div style="border:1px solid #CCC; border-radius:3px; background-color: #ECF9FF; padding:3px;">padding</div></td>
+															</tr>
+														</table></td>
+													<td height="28" align="center" valign="middle"><a class="btn btn-editor" title="Padding-right" onclick="$(this).next('input').val(setgvarineditor(parseInt($(this).next('input').val())+1+'px','paddingright'))" style="font-size:13px; line-height:0; color:#555555; padding-left:0px; padding-right:0px; width:13px; height:28px; padding-top:7px;"><i class="icon-angle-left"></i></a><input title="Padding-right" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; display:inline; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingright')" /></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td width="28" align="center" valign="middle"><a class="btn btn-editor" title="Padding-bottom" onclick="$(this).next('input').val(setgvarineditor(parseInt($(this).next('input').val())+1+'px','paddingbottom'))" style="font-size:13px; line-height:0; color:#555555; padding-top:0px; padding-bottom:0px; padding-left:9px; width:28px; height:13px;"><i class="icon-angle-up"></i></a><input title="Padding-bottom" value="0" class="form-control" style="width:16px; height:16px; font-size:11px; line-height:0; padding:1px; text-align:center;" onchange="setgvarineditor($(this).val().replace(/\s+/g,'')+'px','paddingbottom')" /></td>
+													<td></td>
+												</tr>
+											</table></td>
+										<td width="16px" align="center"><table height="80" border="0" cellspacing="0" cellpadding="0">
+												<tr>
+													<td style="border-right:1px solid #CCC;"></td>
+												</tr>
+											</table></td>
+										<td><table cellpadding="0" cellspacing="0" border="0">
+												<tr>
+													<td height="28" align="left" valign="middle"><div style="display:block;">
+															<div class="checkbox-inline" style="cursor:default;">
+																<input type="checkbox" name="addtablestate" id="addtablestate" value="addtablestate" />
+															</div>
+															<label title="Adding a table to enclose the words">Table</label>
+														</div></td>
+												</tr>
+												<tr>
+													<td height="28" align="right">
+														<div class="input-group" style="display: inline;">
+															<input type="text" class="form-control" title="Width" id="texttdwidth" style="display:inline-block; height:25px; width:45px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0 0 4px; text-align:center; padding:1px;" placeholder="Width" onchange="setgvarineditor($(this).val().replace(/\s+/g,''),'width')" /><span class="input-group-addon" style="height: 25px; width: 20px; display: inline-block; padding: 3px; padding-left:1px;">px</span> </div>
+												</tr>
+												<tr>
+													<td height="28" align="right">
+														<div class="input-group" style="display: inline;">
+															<input type="text" class="form-control" title="Height" id="texttdheight" style="display:inline; height:25px; width:45px; font-size:12px; line-height:20px; overflow:hidden; border-radius:4px 0 0 4px; text-align:center; padding:1px;" placeholder="Height" onchange="setgvarineditor($(this).val().replace(/\s+/g,''),'height')" /><span class="input-group-addon" style="height: 25px; width: 20px; display: inline-block; padding: 3px; padding-left:1px;">px</span> </div></td>
+												</tr>
+											</table></td>
+									</tr>
+								</table>
+							</div>
+							<div style="max-height:600px; overflow:auto;">
+								<div style="width:100%; background-color:#FFF; outline:0; overflow:auto; padding:3px; display:block;">
+									<textarea id="textineditor" style="width:100%; min-height:150px; border:1px dotted #CCC; outline:0; resize:vertical;"></textarea>
+								</div>
+								<div id="demoportion" style="margin:0; padding:5px; background-color:rgba(255, 255, 255, 0); display:block;">
+									<div style="color:#0070A6; display:block; text-align:left;"><strong>DEMO</strong> <em>(You can both select words below and above to operate)</em></div>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:2px dotted #aaa;">
+										<tr>
+											<td width="100%" id="textdemo" style="vertical-align:top; text-align:left; height:150px;"></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div style="width:100%; height:50px; background: #cfd1cf; background-image: -webkit-linear-gradient(top,#ebebeb,#cfd1cf); border-top: 1px solid #bfbfbf;">
+								<div class="btn-group" style="position: absolute; left:10px; bottom:10px;"> <a class="btn btn-editor" title="Undo (Ctrl+z / Cmd+z in MAC)" onclick="geteditorundo()" style="width:35px; height:30px; padding:7px;"><i class="icon-undo"></i></a> <a class="btn btn-editor" title="Redo (Ctrl+y / Shift+Cmd+z in MAC)" onclick="geteditorredo()" style="width:35px; height:30px; padding:7px;"><i class="icon-repeat"></i></a> </div>
+								<div singleselect class="btn-group" data-toggle="button" style="position:absolute; left:100px; bottom:10px;"><a id="nbspmod" class="btn btn-editor-select" title="Convert spaces into &amp;nbsp;s. Click to open/close." style="font-size:13px; line-height:14px; font-weight:bold; padding-left:4px; padding-right:4px; width:72px; height:30px; padding:7px;">&amp;nbsp;</a></div>
+								<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td align="center" valign="middle"><button type="button" class="btn btn-primary" style="outline:0;" onclick="confirmeditor()">Confirm</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal" style="outline:0;">Close</button></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div></td>
+		</tr>
+	</table>
 </div>
 <script>
 $(".pinned").pin();
