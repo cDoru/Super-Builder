@@ -38,6 +38,7 @@ var alertlgt = 0;
 var alertquote = 0;
 var campaignmod = 1;
 var Samsungversion = 1;
+var cwstdshow = 0;
 /*****************************************
 Extend function of sort Array
 *******************************************/
@@ -1002,6 +1003,7 @@ function aliasMod() {
 	$("#guideTd3").css("display", "");
 	$("#guideTd4").css("display", "none");
 	$("#addbottomline").css("display", "none");
+	if(cwstdshow) $("#cwsTd").css("display", "");
 	//$("#txtarea").css("padding-top","0px");
 	var buttonclass = "butmodnav" + campaignmod;
 	$("#Mod1").removeClass().addClass("butgrey");
@@ -1083,8 +1085,16 @@ function convertcws() {
 			if ((urldata[i].indexOf("not") != -1) && (urldata[i].indexOf("clickable") != -1)) {
 				alert("The No." + i + " row shows that it may not be clickable. Pls notice!");
 			}
-			if (urldata[i] == "ET") {
-				alert('The url in No.' + i + ' row is "ET". Pls notice!');
+			if (urldata[i].replace(/ /g,'') == "ET") {
+				var getthisalias=aliasdata[i];
+				if (getthisalias.match(/web/i)&&getthisalias.match(/view/i)) {
+					urldata[i]='%%view_email_url%%';
+				}else if ((getthisalias.match(/send/i)||getthisalias.match(/forward/i))&&getthisalias.match(/friend/i)) {
+					urldata[i]='%%ftaf_url%%';
+				}else{
+					urldata[i]='http://replace';
+				}
+				alert('The url in No.' + i + ' row is "ET" and is already replaced by "'+urldata[i]+'".');
 			}
 			if (urldata[i] || aliasdata[i]) {
 				if (campaignmod == 2) {
@@ -1112,6 +1122,7 @@ function convertcws() {
 		$("div#cwsDiv").html(showcws);
 		$("#cwsTd").css("display", "");
 		$("div#cwsDiv").css("display", "");
+		cwstdshow=1;
 	}
 	$("#cwsDiv span").tooltip({
 		container: 'body'
