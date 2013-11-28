@@ -340,6 +340,15 @@ function toHex(num1){
 Convert the value of color to Hex
 *******************************************/
 function colortoHex(str){
+	str=str.replace(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\);/g, function(match,p1,p2,p3,offset,s) {
+		return '#'+toHex(p1)+toHex(p2)+toHex(p3)+';';
+	});
+	return str;
+}
+/*****************************************
+Convert the value of color to Hex
+**************************************
+function colortoHex(str){
 	var colors=new Array();
 	var getmatch = new RegExp(/rgb\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*\);/g);
 	for (var i = 0;; i++) {
@@ -360,4 +369,4 @@ function colortoHex(str){
 		str=str.split(colors[i]).join(colorinhex);
 	}
 	return str;
-}
+}*****/
