@@ -201,6 +201,7 @@ $(document).ready(function() {
 				} else if (event.button == 2) {
 					if (($(this).children().is("td") || $(this).children().is("tr") || $(this).children().is("table") || $(this).parents().is("editoraddtable")) != true) {
 						$(this).html("");
+						$(this).removeAttr("style");
 						$(this).html($(this).attr("imgorder"));
 					}
 				}
@@ -605,17 +606,13 @@ function inputprocess() {
 			var aliasdatare = aliasdata[cwsNum];
 			aliasdatare = aliasdatare.replace(/\s+/g, " ");
 			$("div#a1 input").eq(j).attr("alias", aliasdatare);
-			for (var i = 1; i < imgorderMax; i++) {
+			$("div#a1 input").eq(j).attr("realias",1);
+			for (var i = 0; i < j; i++) {
 				var aliastest1 = aliasdatare;
-				aliastest1 = aliastest1.split("\&").join("&amp;");
-				aliastest1 = aliastest1.split("\"").join("&quot;");
-				aliastest1 = aliastest1.split("\<").join("&lt;");
-				aliastest1 = aliastest1.split("\>").join("&gt;");
-				var numDetect = $("div#a1").html();
-				var abc =new RegExp("alias=\"" + aliastest1 + "\" " + "realias=\"" + i + "\"",'i');
-				if (!numDetect.match(abc)) {
-					$("div#a1 input").eq(j).attr("realias", i);
-					break;
+				var aliasDetect = $("div#a1 input").eq(i).attr("alias");
+				var numDetect = $("div#a1 input").eq(i).attr("realias");
+				if(aliasDetect&&aliastest1) if(aliasDetect.toLowerCase()==aliastest1.toLowerCase()){
+					$("div#a1 input").eq(j).attr("realias", numDetect?parseInt(numDetect)+1:1);
 				}
 			}
 			if(aliasdatare.match(/"/)||aliasdatare.match(/</)||aliasdatare.match(/>/)) $("div#a1 input").eq(j).attr("spacialcharinalias","1");
@@ -1057,17 +1054,15 @@ function convertcws() {
 			$("div#a1 img").before('<input class="form-control" type="text" style="width:23px; height:20px; padding:0px;">');
 		}
 		cws1 = cwsdataAlias.value;
-		cws1 = cws1.replace(/\n/g, ",[],,");
-		aliasdata = cws1.split(",[],,");
+		aliasdata = cws1.split('\n');
 		cws2 = cwsdataUrl.value;
-		cws2 = cws2.replace(/\n/g, ",[],,");
-		urldata = cws2.split(",[],,");
+		urldata = cws2.split('\n');
 		cws3 = cwsdataCon.value;
-		cws3 = cws3.replace(/\n/g, ",[],,");
-		condata = cws3.split(",[],,");
+		condata = cws3.split('\n');
+		if(aliasdata.length!=urldata.length||(cws3!=""&&campaignmod==1&&aliasdata.length!=condata.length)) alert('The data amount of alias/url/conversion does not match each other. Please check!');
 		var showcws = '<table class="table-striped" align="center" bgcolor="' + bordercolor[campaignmod - 1] + '" border="0" cellspacing="1" cellpadding="0" width="160" style="border-collapse:separate; background-color:' + bordercolor[campaignmod - 1] + '; border-spacing:1px;">';
 		var numcount;
-		numcount = cwsdataCon.value?Math.min(aliasdata.length, urldata.length, condata.length):Math.min(aliasdata.length, urldata.length);
+		numcount = (cwsdataCon.value&&campaignmod==1)?Math.min(aliasdata.length, urldata.length, condata.length):Math.min(aliasdata.length, urldata.length);
 		var urlerror = 0;
 		for (var i = 0; i < numcount; i++) {
 			aliasdata[i] = aliasdata[i] + 'endofalias!';
